@@ -55,3 +55,8 @@ end
 # Use omni-auth for Twitter authentication
 gem 'omniauth-twitter'
 
+# Access environment variables from a .env file
+gem 'dotenv-rails', groups: [:development, :test]
+
+# Use pry for debugging
+gem 'pry', :group => :development
