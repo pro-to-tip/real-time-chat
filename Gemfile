@@ -47,3 +47,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use mongoid for official Mongo Db support
 gem 'mongoid', '~> 6.0.0'
+
+# Use rspec for testing
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
