@@ -1,7 +1,5 @@
 development:
-  # Configure available database clients. (required)
   clients:
-    # Defines the default client. (required)
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
@@ -141,3 +139,10 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+
+production:
+  clients:
+     default:
+       uri: <%= ENV['MONGODB_URI'] %>
+       options:
+         connect_timeout: 15
