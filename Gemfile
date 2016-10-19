@@ -59,4 +59,4 @@ gem 'omniauth-twitter'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Use pry for debugging
-gem 'pry', :group => :development
+gem 'pry', groups: [:development, :test]
