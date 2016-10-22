@@ -80,7 +80,7 @@ RSpec.describe SessionsController, type: :controller do
 
   def example_user
    request_data = example_auth_data
-   user = User.create(name: request_data[:info][:name], username: request_data[:info][:nickname], image: request_data[:info][:image], id: request_data[:extra][:raw_info][:id])  
+   user = create(:user, name: request_data[:info][:name], username: request_data[:info][:nickname], image: request_data[:info][:image], id: request_data[:extra][:raw_info][:id])
    user
   end   
 

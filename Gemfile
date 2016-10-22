@@ -60,3 +60,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # Use pry for debugging
 gem 'pry', groups: [:development, :test]
+
+# Use factorygirl to generate test objects
+gem 'factory_girl_rails', :group => :test
