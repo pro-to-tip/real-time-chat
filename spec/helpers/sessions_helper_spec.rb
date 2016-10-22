@@ -47,5 +47,17 @@ RSpec.describe SessionsHelper, type: :helper do
       expect(helper.logged_in).to eq false
     end
   end
+  describe "#logout" do
+    it "logs out a logged in user" do
+      user = create(:user)
+      login(user)
+      logout
+      expect(helper.logged_in).to eq false
+    end
+    it "does nothing if a user is not logged in" do
+      logout
+      expect(helper.logged_in).to eq false
+    end
+  end
 end
 

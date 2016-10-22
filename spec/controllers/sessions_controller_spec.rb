@@ -103,6 +103,21 @@ RSpec.describe SessionsController, type: :controller do
       expect(user.name).to eq auth_data[:info][:name]
       expect(session[:user_id]).to eq user.id
       expect(response).to have_http_status(:redirect)
+    end
   end
-end
+  
+  describe "#destroy" do
+    it "redirects to index when a user isn't logged in" do
+      get :destroy
+      expect(response).to have_http_status(:redirect)
+    end
+
+    it "logs the user out and redirects when a user is logged in" do
+      auth_data = example_auth_data
+      @request.env['omniauth.auth'] = auth_data
+      get :create
+      get :destroy
+      expect(response).to have_http_status(:redirect)
+    end
+  end
 end
