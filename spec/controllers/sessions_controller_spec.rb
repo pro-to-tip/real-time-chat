@@ -91,7 +91,8 @@ RSpec.describe SessionsController, type: :controller do
       get :create
       user = User.find(id: auth_data[:extra][:raw_info][:id])
       expect(user.name).to eq auth_data[:info][:name]
-      expect(response).to have_http_status(:success)
+      expect(session[:user_id]).to eq user.id
+      expect(response).to have_http_status(:redirect)
     end
 
     it "finds a user if they already exist" do
@@ -100,7 +101,8 @@ RSpec.describe SessionsController, type: :controller do
       @request.env['omniauth.auth'] = auth_data
       get :create
       expect(user.name).to eq auth_data[:info][:name]
-      expect(response).to have_http_status(:success)
+      expect(session[:user_id]).to eq user.id
+      expect(response).to have_http_status(:redirect)
   end
 end
 end

@@ -11,5 +11,11 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SessionsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "login" do
+    it "adds the user's id to the session" do
+      user = create(:user)
+      helper.login(user)
+      expect(session[:user_id]).to eq user.id
+    end
+  end
 end
