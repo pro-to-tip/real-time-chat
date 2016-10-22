@@ -12,6 +12,11 @@ class SessionsController < ApplicationController
     user = create_user(request_data) if !user 
     # Log the user in
     login user    
-    return redirect_to index_url
+    redirect_to index_url
+  end
+
+  def destroy
+    logout
+    redirect_to index_url
   end
 end
